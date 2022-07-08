@@ -9,9 +9,9 @@ Created on Fri Jul  8 11:04:01 2022
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-#import os
-#path = '/home/stefano/perceptron'
-#os.chdir(path)
+import os
+path = '/home/stefano/perceptron'
+os.chdir(path)
 fileName = 'dataFlowers.xlsx'
 df = pd.read_excel(fileName)#, header = None)
 
@@ -25,3 +25,8 @@ plt.ylabel('petal length')
 plt.legend(loc= 'upper left')
 plt.grid()
 plt.show()
+
+ppn = Perceptron(eta=0.1, n_iter=10)
+ppn.fit(X, y)
+plt.grid()
+plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker = 'o')
