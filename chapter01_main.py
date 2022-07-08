@@ -62,7 +62,7 @@ def plot_decision_regions(X, y, classifier, resolution = 0.02):
                     marker = markers[idx], label = c1)
 plt.figure()       
 plot_decision_regions(X, y, classifier = ppn)
-plt.xlabel('sepal length [cm]')
+plt.xlabel('sepal length [cm]')#labels
 plt.ylabel('petal length [cm]')
 plt.legend(loc = 'upper left')
 plt.show()
