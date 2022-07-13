@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jul 13 08:00:00 2022
+
+@author: stefano
+"""
+eta = 0.1
+w_ = np.zeros(3)# 1 + Xshape[1] = 3
+errors_ = []
+errors = 0
+
+
+j = 0 # loop number 0
+xi, target = list(zip(X, y))[j]
+net_input = np.dot(xi, w_[1:]) + w_[0]#net_input method
+predict = np.where(net_input >= 0.0, 1, -1)#predict method
+update = eta*(target-predict)
+w_[1:] += update * xi
+w_[0] += update 
+errors += int(update != 0.0)
+errors_.append(errors)
