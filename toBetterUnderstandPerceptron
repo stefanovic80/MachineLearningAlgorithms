@@ -10,7 +10,7 @@ w_ = np.zeros(3)# 1 + Xshape[1] = 3
 errors_ = []
 
 
-"""
+#""" # one loop only
 errors = 0
 j = 0 # loop number 0
 xi, target = list(zip(X, y))[j]
@@ -21,16 +21,18 @@ w_[1:] += update * xi
 w_[0] += update 
 errors += int(update != 0.0)
 errors_.append(errors)
+j + = 1
 #errors_.append(errors)
+#"""
+
+
 """
-
-
 l = list(zip(X, y))
 u = len(l)
 
-for epochs in range(11):
+for epochs in range(11): # number of epochs
     errors = 0
-    for j in range(u): # loop number 0
+    for j in range(u): # number of loops equals to X dimension
         xi, target = l[j]
         net_input = np.dot(xi, w_[1:]) + w_[0]#net_input method
         predict = np.where(net_input >= 0.0, 1, -1)#predict method
@@ -41,3 +43,4 @@ for epochs in range(11):
     errors_.append(errors)
         
 print(errors_)
+"""
