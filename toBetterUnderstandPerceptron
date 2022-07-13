@@ -10,7 +10,7 @@ w_ = np.zeros(3)# 1 + Xshape[1] = 3
 errors_ = []
 
 
-#""" # one loop only
+""" # one loop only
 errors = 0
 j = 0 # loop number 0
 xi, target = list(zip(X, y))[j]
@@ -20,17 +20,16 @@ update = eta*(target-predict)
 w_[1:] += update * xi
 w_[0] += update 
 errors += int(update != 0.0)
-errors_.append(errors)
-j + = 1
+j += 1
+print(errors)
 #errors_.append(errors)
-#"""
-
-
 """
+
+#"""
 l = list(zip(X, y))
 u = len(l)
-
-for epochs in range(11): # number of epochs
+#u = 1
+for epochs in range(1): # number of epochs
     errors = 0
     for j in range(u): # number of loops equals to X dimension
         xi, target = l[j]
@@ -43,4 +42,4 @@ for epochs in range(11): # number of epochs
     errors_.append(errors)
         
 print(errors_)
-"""
+#"""
